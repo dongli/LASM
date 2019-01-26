@@ -7,6 +7,8 @@ module parcel_mod
 
   private
 
+  public parcel_type
+
   type parcel_type
     integer id
     type(spherical_coord_type) xs
@@ -16,6 +18,7 @@ module parcel_mod
     real(r8) volume
   contains
     procedure :: init => parcel_init
+    procedure :: pack => parcel_pack
     final :: parcel_final
   end type parcel_type
 
@@ -39,6 +42,14 @@ contains
     call this%xs%set(lon, lat, lev)
 
   end subroutine parcel_init
+
+  function parcel_pack(this) result(res)
+
+    class(parcel_type), intent(in) :: this
+
+    real(r8) res
+
+  end function parcel_pack
 
   subroutine parcel_final(this)
 

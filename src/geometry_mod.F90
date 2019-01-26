@@ -6,11 +6,15 @@ module geometry_mod
 
   private
 
+  public coord_type
   public spherical_coord_type
   public cartesian_coord_type
   public spherical_velocity_type
 
-  type spherical_coord_type
+  type, abstract :: coord_type
+  end type coord_type
+
+  type, extends(coord_type) :: spherical_coord_type
     real(r8) lon
     real(r8) lat
     real(r8) lev
@@ -19,7 +23,7 @@ module geometry_mod
     procedure :: from => spherical_coord_from_cartesian_coord
   end type spherical_coord_type
 
-  type cartesian_coord_type
+  type, extends(coord_type) :: cartesian_coord_type
     real(r8) x
     real(r8) y
     real(r8) z
