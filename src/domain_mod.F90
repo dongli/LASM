@@ -9,19 +9,19 @@ module domain_mod
   public domain_type
 
   !
-  !    left top corner                 top edge                right top corner
-  !                      |        |        |        |       |
-  !                    --|----------------------------------|--
-  !                      |                                  |
-  !                      |                                  |
-  !                      |                                  |
-  !          left edge   |                                  |  right edge
-  !                      |                                  |
-  !                      |                                  |
-  !                      |                                  |
-  !                    --|----------------------------------|--
-  !                      |                                  |
-  ! left bottom corner               right edge                right bottom corner
+  !    left top corner                top edge                right top corner
+  !                     |        |        |        |       |
+  !                   --|----------------------------------|--
+  !                     |                                  |
+  !                     |                                  |
+  !                     |                                  |
+  !          left edge  |                                  |  right edge
+  !                     |                                  |
+  !                     |                                  |
+  !                     |                                  |
+  !                   --|----------------------------------|--
+  !                     |                                  |
+  ! left bottom corner              right edge                right bottom corner
 
   type, abstract :: domain_type
     integer :: id = 0

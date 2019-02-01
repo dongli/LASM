@@ -26,6 +26,18 @@ contains
     class(cartesian_domain_type), intent(in) :: this
     class(coord_type), intent(in) :: coord
 
+    res = .false.
+    select type (coord)
+    type is (cartesian_coord_type)
+      if (coord%x < this%left_top_corner%x    || coord%x > this%right_top_corner%x    || &
+          coord%y < this%left_bottom_corner%y || coord%y > this%right_bottom_corner%y) then
+        res = .true.
+      end if
+    class default
+      write(*, *) '[Error]: Wrong coordinate type!'
+      stop 1
+    end select
+
   end function cartesian_domain_outside
 
 end module cartesian_domain_mod
